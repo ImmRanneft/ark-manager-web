@@ -1,4 +1,4 @@
-# ark-manager-web
+# ark-manager-web - WIP branch will be deleted
 
 [![Analytics](https://ga-beacon.appspot.com/UA-87116567-1/ark-manager-web)](https://github.com/igrigorik/ga-beacon)
 
