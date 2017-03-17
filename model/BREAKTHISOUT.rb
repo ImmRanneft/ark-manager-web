@@ -108,3 +108,17 @@ module DalliAdapter
     end
   end
 end
+
+
+mod_list_conf = Dir.pwd + '/mod_list.json'
+
+
+Repository.register(:mod_list, DalliAdapter::ModRepository.new)
+Repository.for(:mod_list).load_file(mod_list_conf) if File.exists?(mod_list_conf)
+
+installed_mods = [Repository.for(:mod_list).all.map {|m| m.id }[0..25], 72442408, 72442318, 724423358, 154811911].flatten!
+(Repository.for(:mod_list).all.map {|m| m.id } - installed_mods).each {|id| Repository.for(:mod_list).delete_by(id: id) }
+(installed_mods - Repository.for(:mod_list).all.map{ |m| m.id }).each {|id| Repository.for(:mod_list).create(id: id) }
+
+Repository.for(:mod_list).dump_file(mod_list_conf)
+
