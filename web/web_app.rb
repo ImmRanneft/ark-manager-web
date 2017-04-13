@@ -7,6 +7,6 @@ class WebApp < Sinatra::Base
   set :haml, format: :html5
   set :public_folder, './public'
   get '/' do
-    haml :index
+    haml :index, :locals => { useBuild: self.class.production? }
   end
 end

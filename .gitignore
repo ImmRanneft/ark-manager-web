@@ -10,3 +10,4 @@ tmp/*
 /config/mod_list*
 /config/schedules*
 /config/env_config*
+/public/node_modules/
